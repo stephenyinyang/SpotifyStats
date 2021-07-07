@@ -1,0 +1,17 @@
+---
+applications:
+- instances: 1
+  timeout: 180
+  name: pythonflaskapp
+  buildpack: python_buildpack
+  command: python manage.py start 0.0.0.0:$PORT
+  disk_quota: 1G
+  memory: 128MB
+  domain: mybluemix.net
+  host: Spotify-Stats
+  env:
+    SPOTIPY_CLIENT_ID: "07babcfeaea747f0967bb1d5145fc21f"
+    SPOTIPY_CLIENT_SECRET: "45e1dbda55da450b808e50aaf728365b"
+    SPOTIPY_REDIRECT_URI: "https://spotify-stats.mybluemix.net/"
+    FLASK_APP: server
+    FLASK_DEBUG: false
